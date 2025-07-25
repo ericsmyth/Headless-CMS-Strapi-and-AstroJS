@@ -9,6 +9,10 @@ Follow the screenshots below for field types.
 
 After the Content-Types are set, go ahead and create a couple test articles in Strapi.
 
+Then open permissions under settings->users&permissions->roles->public. Select all under articles, category, author.
+
+![permissions example](images/permissions.png)
+
 CD into both backend & frontend directories and run
 
 ```
