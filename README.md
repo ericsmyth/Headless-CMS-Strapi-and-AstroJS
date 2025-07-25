@@ -7,6 +7,8 @@ Follow the screenshots below for field types.
 ![category example](images/category.png)
 ![article example](images/article.png)
 
+After the Content-Types are set, go ahead and create a couple test articles in Strapi.
+
 CD into both backend & frontend directories and run
 
 ```
