@@ -1,0 +1,26 @@
+---
+import { fetchArticle, fetchArticles } from '../lib/strapi';
+const articles = await fetchArticles();
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Eric's Test Blog</title>
+	</head>
+	<body>
+		<h1>Welcome to Eric's Blog</h1>
+		<ul>
+			{articles.map((article) => (
+				<li>
+					<a href={`/article/${article.slug}`}>
+						{article.title}
+					</a>
+				</li>
+			))}
+		</ul>
+	</body>
+</html>

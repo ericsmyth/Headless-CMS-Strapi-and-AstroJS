@@ -1,0 +1,25 @@
+---
+import { fetchArticle, fetchArticles } from '../../lib/strapi';
+import StrapiBlocksRenderer from '../../components/StrapiBlocksRenderer.jsx';
+
+export async function getStaticPaths() {
+    const articles = await fetchArticles();
+    return articles.map((article) => ({
+        params: { slug: article.slug },
+    }));
+}
+
+const { slug } = Astro.params;
+const article = await fetchArticle(slug);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{article.title}</title>
+    </head>
+    <body>
+        <h1>{article.title}</h1>
+        <StrapiBlocksRenderer client:load content={article.content} />
+    </body>
+</html>
