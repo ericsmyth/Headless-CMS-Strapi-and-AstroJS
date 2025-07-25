@@ -1,4 +1,5 @@
 ---
+import Layout from '../../layouts/Layout.astro';
 import { fetchArticle, fetchArticles } from '../../lib/strapi';
 import StrapiBlocksRenderer from '../../components/StrapiBlocksRenderer.jsx';
 
@@ -13,13 +14,13 @@ const { slug } = Astro.params;
 const article = await fetchArticle(slug);
 ---
 
-<html lang="en">
+<Layout>
     <head>
         <meta charset="utf-8" />
         <title>{article.title}</title>
     </head>
-    <body>
-        <h1>{article.title}</h1>
+    <article class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">{article.title}</h1>
         <StrapiBlocksRenderer client:load content={article.content} />
-    </body>
-</html>
+    </article>
+</Layout>
