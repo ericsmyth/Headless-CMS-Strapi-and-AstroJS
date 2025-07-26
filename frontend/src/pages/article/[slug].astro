@@ -9,7 +9,7 @@ export async function getStaticPaths() {
         params: { slug: article.slug },
     }));
 }
-
+const BASE_URL = 'http://localhost:1337';
 const { slug } = Astro.params;
 const article = await fetchArticle(slug);
 ---
@@ -21,6 +21,7 @@ const article = await fetchArticle(slug);
     </head>
     <article class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-4">{article.title}</h1>
+            <img src={`${BASE_URL}${article.featuredImage?.url}`} class="mb-8" />
         <StrapiBlocksRenderer client:load content={article.content} />
     </article>
 </Layout>
