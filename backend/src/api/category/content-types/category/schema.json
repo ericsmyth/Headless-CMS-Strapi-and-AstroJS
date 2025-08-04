@@ -17,11 +17,11 @@
     "Description": {
       "type": "string"
     },
-    "article": {
+    "articles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::article.article",
-      "inversedBy": "categories"
+      "mappedBy": "category"
     }
   }
 }

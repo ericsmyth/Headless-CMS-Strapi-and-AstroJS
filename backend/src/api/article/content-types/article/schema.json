@@ -18,7 +18,8 @@
       "type": "blocks"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "featuredImage": {
       "type": "media",
@@ -35,11 +36,11 @@
       "relation": "oneToOne",
       "target": "api::author.author"
     },
-    "categories": {
+    "category": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "mappedBy": "article"
+      "inversedBy": "articles"
     }
   }
 }
